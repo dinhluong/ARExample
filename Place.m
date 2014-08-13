@@ -10,4 +10,13 @@
 
 @implementation Place
 
+- (id) initWithLocation:(CLLocation *)location reference:(NSString *)reference PlaceName:(NSString *)placeName address:(NSString *)address{
+    if (self = [super init]) {
+        _reference = reference;
+        _placeName = placeName;
+        _address = address;
+    }
+    return self;
+}
+
 @end

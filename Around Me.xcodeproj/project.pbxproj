@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		251328A1199B0B5A0079572C /* PlaceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 251328A0199B0B5A0079572C /* PlaceLoader.m */; };
 		251328A4199B77800079572C /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 251328A3199B77800079572C /* Place.m */; };
+		251328A8199B7C190079572C /* PlaceAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 251328A7199B7C190079572C /* PlaceAnnotation.m */; };
 		8FB68A4316B9ACCA00979E63 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB68A4216B9ACCA00979E63 /* UIKit.framework */; };
 		8FB68A4516B9ACCA00979E63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB68A4416B9ACCA00979E63 /* Foundation.framework */; };
 		8FB68A4716B9ACCA00979E63 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FB68A4616B9ACCA00979E63 /* CoreGraphics.framework */; };
@@ -32,6 +33,8 @@
 		251328A0199B0B5A0079572C /* PlaceLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceLoader.m; sourceTree = "<group>"; };
 		251328A2199B77800079572C /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
 		251328A3199B77800079572C /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
+		251328A6199B7C190079572C /* PlaceAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceAnnotation.h; sourceTree = "<group>"; };
+		251328A7199B7C190079572C /* PlaceAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceAnnotation.m; sourceTree = "<group>"; };
 		8FB68A3F16B9ACCA00979E63 /* Around Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Around Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FB68A4216B9ACCA00979E63 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8FB68A4416B9ACCA00979E63 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -74,11 +77,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8FB68A3616B9ACCA00979E63 = {
+		251328A5199B7BFB0079572C /* Place Class */ = {
 			isa = PBXGroup;
 			children = (
 				251328A2199B77800079572C /* Place.h */,
 				251328A3199B77800079572C /* Place.m */,
+			);
+			name = "Place Class";
+			sourceTree = "<group>";
+		};
+		251328A9199B7C2A0079572C /* Place Annotation */ = {
+			isa = PBXGroup;
+			children = (
+				251328A6199B7C190079572C /* PlaceAnnotation.h */,
+				251328A7199B7C190079572C /* PlaceAnnotation.m */,
+			);
+			name = "Place Annotation";
+			sourceTree = "<group>";
+		};
+		251328AA199B7C520079572C /* Loader Class */ = {
+			isa = PBXGroup;
+			children = (
+				2513289F199B0B5A0079572C /* PlaceLoader.h */,
+				251328A0199B0B5A0079572C /* PlaceLoader.m */,
+			);
+			name = "Loader Class";
+			sourceTree = "<group>";
+		};
+		8FB68A3616B9ACCA00979E63 = {
+			isa = PBXGroup;
+			children = (
+				251328A9199B7C2A0079572C /* Place Annotation */,
+				251328A5199B7BFB0079572C /* Place Class */,
 				8FB68A4816B9ACCA00979E63 /* Around Me */,
 				8FB68A4116B9ACCA00979E63 /* Frameworks */,
 				8FB68A4016B9ACCA00979E63 /* Products */,
@@ -118,8 +148,7 @@
 				8FB68A6016B9ACCA00979E63 /* FlipsideViewController.h */,
 				8FB68A6116B9ACCA00979E63 /* FlipsideViewController.m */,
 				8FB68A4916B9ACCA00979E63 /* Supporting Files */,
-				2513289F199B0B5A0079572C /* PlaceLoader.h */,
-				251328A0199B0B5A0079572C /* PlaceLoader.m */,
+				251328AA199B7C520079572C /* Loader Class */,
 			);
 			path = "Around Me";
 			sourceTree = "<group>";
@@ -207,6 +236,7 @@
 				8FB68A4F16B9ACCA00979E63 /* main.m in Sources */,
 				8FB68A5316B9ACCA00979E63 /* AppDelegate.m in Sources */,
 				251328A1199B0B5A0079572C /* PlaceLoader.m in Sources */,
+				251328A8199B7C190079572C /* PlaceAnnotation.m in Sources */,
 				251328A4199B77800079572C /* Place.m in Sources */,
 				8FB68A5F16B9ACCA00979E63 /* MainViewController.m in Sources */,
 				8FB68A6216B9ACCA00979E63 /* FlipsideViewController.m in Sources */,
