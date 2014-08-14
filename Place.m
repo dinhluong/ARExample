@@ -12,11 +12,14 @@
 
 - (id) initWithLocation:(CLLocation *)location reference:(NSString *)reference PlaceName:(NSString *)placeName address:(NSString *)address{
     if (self = [super init]) {
+        _location = location;
         _reference = reference;
         _placeName = placeName;
         _address = address;
     }
     return self;
 }
-
+- (NSString *)infoText {
+	return [NSString stringWithFormat:@"Name:%@\nAddress:%@\nPhone:%@\nWeb:%@", _placeName, _address, _phoneNumber, _website];
+}
 @end

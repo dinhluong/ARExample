@@ -9,7 +9,7 @@
 #import "PlaceLoader.h"
 #import <CoreLocation/CoreLocation.h>
 #import <Foundation/NSJSONSerialization.h>
-
+#import "Place.h"
 NSString *const apiURL = @"https://maps.googleapis.com/maps/api/place/";
 NSString *const apiKey = @"AIzaSyDFoGdRdyVe_dcPXHwxgxI9MfOUJWOd3C8";
 
@@ -84,5 +84,23 @@ NSString *const apiKey = @"AIzaSyDFoGdRdyVe_dcPXHwxgxI9MfOUJWOd3C8";
         _errorHandler(error);
     }   		
 
+}
+- (void)loadDetailInformation:(Place *)location successHanlder:(SuccessHandler)handler errorHandler:(ErrorHandler)errorHandler {
+	_responseData = nil;
+	_successHandler = handler;
+	_errorHandler = errorHandler;
+    
+	NSMutableString *uri = [NSMutableString stringWithString:apiURL];
+    
+	[uri appendFormat:@"details/json?reference=%@&sensor=true&key=%@", [location reference], apiKey];
+    
+	NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[uri stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:20.0f];
+    
+	[request setHTTPShouldHandleCookies:YES];
+	[request setHTTPMethod:@"GET"];
+    
+	NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+    
+	NSLog(@"Starting connection: %@ for request: %@", connection, request);
 }
 @end

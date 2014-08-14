@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class CLLocation;
-
+@class Place;
 typedef void(^SuccessHandler)(NSDictionary *responseDict);
 typedef void(^ErrorHandler)(NSError *error);
 
@@ -18,4 +18,6 @@ typedef void(^ErrorHandler)(NSError *error);
 + (PlaceLoader *) SharedInstance;
 
 - (void) loadPOIsForLocation: (CLLocation *) location radius:(int)radius SuccessHandler:(SuccessHandler)successHandler ErrorHandle:(ErrorHandler) errorHandler;
+
+- (void)loadDetailInformation:(Place *)location successHanlder:(SuccessHandler)handler errorHandler:(ErrorHandler)errorHandler;
 @end
