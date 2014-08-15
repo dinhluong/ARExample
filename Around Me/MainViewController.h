@@ -10,7 +10,9 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 @interface MainViewController : UIViewController <FlipsideViewControllerDelegate,CLLocationManagerDelegate,MKMapViewDelegate>
-
+@property (nonatomic, strong) NSArray *locations;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) IBOutlet CLLocationManager *locationManager;
 
 
 @end

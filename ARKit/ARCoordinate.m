@@ -46,7 +46,6 @@
 
     if (self == otherCoordinate) 
 		return YES;
-    
 	BOOL equal = [self radialDistance]	== [otherCoordinate radialDistance];
 	equal = equal && [self inclination] == [otherCoordinate inclination];
 	equal = equal && [self azimuth]		== [otherCoordinate azimuth];

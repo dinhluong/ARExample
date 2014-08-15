@@ -9,14 +9,11 @@
 #import "FlipsideViewController.h"
 #import "Place.h"
 #import "PlaceLoader.h"
-@interface FlipsideViewController ()
-
-@property (strong, nonatomic) AugmentedRealityController *arController;
-@property (strong, nonatomic) NSMutableArray *geoLocations;
-@end
 
 @implementation FlipsideViewController
-
+NSString * const kPhoneKey = @"formatted_phone_number";
+NSString * const kWebsiteKey = @"website";
+const int kInfoViewTag = 1001;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -101,14 +98,18 @@
     }];
     if (index != NSNotFound) {
         Place *tappedPlace = [_locations objectAtIndex:index];
-        [[PlaceLoader SharedInstance] loadDetailInformation:tappedPlace successHanlder:^(NSDictionary *response) {
+        [[PlaceLoader SharedInstance] loadDetailInformation:tappedPlace
+                                             successHanlder:^(NSDictionary *response)
+        {
 			
 			NSLog(@"Response: %@", response);
 			NSDictionary *resultDict = [response objectForKey:@"result"];
 			[tappedPlace setPhoneNumber:[resultDict objectForKey:kPhoneKey]];
 			[tappedPlace setWebsite:[resultDict objectForKey:kWebsiteKey]];
 			[self showInfoViewForPlace:tappedPlace];
-		} errorHandler:^(NSError *error) {
+		}
+                                               errorHandler:^(NSError *error)
+        {
 			NSLog(@"Error: %@", error);
 		}];
     }
@@ -118,8 +119,6 @@
 	UITextView *infoView = [[UITextView alloc] initWithFrame:CGRectMake(50.0f, 50.0f, frame.size.width - 100.0f, frame.size.height - 100.0f)];
 	[infoView setCenter:[[self view] center]];
 	[infoView setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
-    
-	//1
 	[infoView setText:[place infoText]];
 	[infoView setTag:kInfoViewTag];
 	[infoView setEditable:NO];

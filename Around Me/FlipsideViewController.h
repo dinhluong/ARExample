@@ -11,10 +11,6 @@
 #import "ARKit.h"
 #import "MarkerView.h"
 
-NSString * const kPhoneKey = @"formatted_phone_number";
-NSString * const kWebsiteKey = @"website";
-
-const int kInfoViewTag = 1001;
 @class FlipsideViewController;
 
 @protocol FlipsideViewControllerDelegate
@@ -26,7 +22,8 @@ const int kInfoViewTag = 1001;
 @property (weak, nonatomic) id <FlipsideViewControllerDelegate> delegate;
 @property (strong, nonatomic) NSArray *locations;
 @property (strong, nonatomic) MKUserLocation *userLocation;
-
+@property (strong, nonatomic) AugmentedRealityController *arController;
+@property (strong, nonatomic) NSMutableArray *geoLocations;
 - (IBAction)done:(id)sender;
 
 @end

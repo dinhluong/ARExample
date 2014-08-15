@@ -7,18 +7,10 @@
 //
 
 #import "MainViewController.h"
-#import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "PlaceLoader.h"
 #import "Place.h"
 #import "PlaceAnnotation.h"
-@interface MainViewController ()
-@property (nonatomic, strong) NSArray *locations;
-@property (weak, nonatomic) IBOutlet MKMapView *mapView;
-@property (strong, nonatomic) IBOutlet CLLocationManager *locationManager;
-
-@end
-
 @implementation MainViewController
 
 NSString * const kNameKey = @"name";
@@ -73,7 +65,7 @@ NSString * const kLongitudeKeypath = @"geometry.location.lng";
         MKCoordinateSpan span = MKCoordinateSpanMake(0.14, 0.14);
         MKCoordinateRegion region = MKCoordinateRegionMake([lastLocation coordinate], span);
         [_mapView setRegion:region animated:YES];
-        [[PlaceLoader SharedInstance] loadPOIsForLocation:[locations lastObject] radius:20 SuccessHandler:^(NSDictionary *responseDict) {
+        [[PlaceLoader SharedInstance] loadPOIsForLocation:[locations lastObject] radius:1000 SuccessHandler:^(NSDictionary *responseDict) {
             NSLog(@"response %@",responseDict);
             if ([[responseDict objectForKey:@"status"] isEqualToString:@"OK"]) {
                 id places = [responseDict objectForKey:@"results"];
